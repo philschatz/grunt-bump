@@ -69,6 +69,7 @@ bump: {
     commit: true,
     commitMessage: 'Release v%VERSION%',
     commitFiles: ['package.json'], // '-a' for all files
+    addFiles: [],
     createTag: true,
     tagName: 'v%VERSION%',
     tagMessage: 'Version %VERSION%',
@@ -100,6 +101,9 @@ If so, what is the commit message ? You can use `%VERSION%` which will get repla
 
 ### commitFiles
 An array of files that you wanna commit. You can use `['-a']` to commit all files.
+
+### addFiles
+An array of files that you wanna add before committing.
 
 ### createTag
 Do you wanna create a tag ?

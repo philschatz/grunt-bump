@@ -130,6 +130,17 @@ module.exports = function(grunt) {
     });
 
 
+    // ADD FILES
+    runIf(opts.commit && opts.addFiles, function() {
+      exec('git add ' + opts.addFiles.join(' '), function(err, stdout, stderr) {
+        if (err) {
+          grunt.fatal('Can not add files:\n  ' + stderr);
+        }
+        grunt.log.ok('Added files.');
+        next();
+      });
+    });
+
     // COMMIT
     runIf(opts.commit, function() {
       var commitMessage = opts.commitMessage.replace('%VERSION%', globalVersion);
